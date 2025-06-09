@@ -237,12 +237,11 @@ class CreateParticles {
         let py = pos.getY(i);
         let pz = pos.getZ(i);
 
-        // Create rapid rainbow effect based on particle position and time
-        const baseHue = (time * 2.0) % 1.0; // Faster base color shift
-        const positionInfluence = ((i * 0.005) + (px + py) * 0.002) % 0.8; // More variation
+       
+        const baseHue = (time * 2.0) % 1.0; 
+        const positionInfluence = ((i * 0.005) + (px + py) * 0.002) % 0.8; 
         const rainbowHue = (baseHue + positionInfluence) % 1.0;
         
-        // Default rainbow color for static particles
         this.colorChange.setHSL(rainbowHue, 0.8, 0.6);
         coulors.setXYZ(
           i,
@@ -268,7 +267,6 @@ class CreateParticles {
           px -= f * Math.cos(t);
           py -= f * Math.sin(t);
 
-          // Bright rainbow colors when mouse is pressed
           const interactiveHue = (rainbowHue + zigzagTime * 2.0) % 1.0;
           this.colorChange.setHSL(interactiveHue, 1.0, 0.8);
           coulors.setXYZ(
@@ -285,7 +283,7 @@ class CreateParticles {
             py > initY + 70 ||
             py < initY - 70
           ) {
-            // Intense rainbow when particles are far from origin
+            
             const distantHue = (rainbowHue + 0.5 + time) % 1.0;
             this.colorChange.setHSL(distantHue, 1.0, 0.9);
             coulors.setXYZ(
@@ -303,7 +301,7 @@ class CreateParticles {
               px -= 0.03 * Math.cos(t);
               py -= 0.03 * Math.sin(t);
 
-              // Subtle rainbow shift for hover effect
+             
               const hoverHue = (rainbowHue + 0.3 + time * 0.5) % 1.0;
               this.colorChange.setHSL(hoverHue, 0.9, 0.7);
               coulors.setXYZ(
@@ -404,9 +402,9 @@ class CreateParticles {
         const a = new THREE.Vector3(element.x, element.y, 0);
         thePoints.push(a);
         
-        // Initialize with cohesive rainbow colors
-        const baseInitialHue = (x * 0.1) % 1.0; // Each shape gets a different base hue
-        const pointHue = (baseInitialHue + (z * 0.01)) % 1.0; // Points within shape have slight variation
+       
+        const baseInitialHue = (x * 0.1) % 1.0; 
+        const pointHue = (baseInitialHue + (z * 0.01)) % 1.0; 
         this.colorChange.setHSL(pointHue, 0.8, 0.6);
         colors.push(this.colorChange.r, this.colorChange.g, this.colorChange.b);
         sizes.push(1);
