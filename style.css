@@ -53,13 +53,14 @@ html, body {
   font-size: 3rem;
   font-weight: bold;
   color: transparent;
-  -webkit-text-stroke: 1.5px #ffb3b3;
+  -webkit-text-stroke: 1.5px white;
   text-align: center;
   margin: 2rem auto;
   animation: rainbowStroke 6s linear infinite;
   text-shadow: currentColor
 }
 
+/*
 @keyframes rainbowStroke {
   0% {
     color: red;
@@ -102,6 +103,7 @@ html, body {
     text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
   }
 }
+  */
 
 .about-fullpage {
   display: flex;

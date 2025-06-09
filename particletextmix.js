@@ -211,9 +211,12 @@ class CreateParticles {
   }
 
   render(level) {
-    const time = ((0.001 * performance.now()) % 12) / 12;
+    const time = ((0.001 * performance.now()) % 8) / 8; 
     const zigzagTime = (1 + Math.sin(time * 2 * Math.PI)) / 6;
 
+    
+    const baseColor = this.getEnhancedRainbowColor(time);
+    
     this.raycaster.setFromCamera(this.mouse, this.camera);
 
     const intersects = this.raycaster.intersectObject(this.planeArea);
@@ -237,18 +240,16 @@ class CreateParticles {
         let py = pos.getY(i);
         let pz = pos.getZ(i);
 
-       
-        const baseHue = (time * 2.0) % 1.0; 
-        const positionInfluence = ((i * 0.005) + (px + py) * 0.002) % 0.8; 
-        const rainbowHue = (baseHue + positionInfluence) % 1.0;
         
-        this.colorChange.setHSL(rainbowHue, 0.8, 0.6);
-        coulors.setXYZ(
-          i,
-          this.colorChange.r,
-          this.colorChange.g,
-          this.colorChange.b
-        );
+        const isTopLayer = this.isTopLayerParticle(i, initX, initY);
+        
+        if (isTopLayer) {
+          
+          coulors.setXYZ(i, 1.0, 1.0, 1.0);
+        } else {
+          
+          coulors.setXYZ(i, baseColor.r, baseColor.g, baseColor.b);
+        }
         coulors.needsUpdate = true;
 
         size.array[i] = this.data.particleSize;
@@ -267,15 +268,12 @@ class CreateParticles {
           px -= f * Math.cos(t);
           py -= f * Math.sin(t);
 
-          const interactiveHue = (rainbowHue + zigzagTime * 2.0) % 1.0;
-          this.colorChange.setHSL(interactiveHue, 1.0, 0.8);
-          coulors.setXYZ(
-            i,
-            this.colorChange.r,
-            this.colorChange.g,
-            this.colorChange.b
-          );
-          coulors.needsUpdate = true;
+          if (!isTopLayer) {
+            
+            const interactiveColor = this.getEnhancedRainbowColor((time + 0.15 + zigzagTime * 0.3) % 1.0);
+            coulors.setXYZ(i, interactiveColor.r, interactiveColor.g, interactiveColor.b);
+            coulors.needsUpdate = true;
+          }
 
           if (
             px > initX + 70 ||
@@ -283,16 +281,12 @@ class CreateParticles {
             py > initY + 70 ||
             py < initY - 70
           ) {
-            
-            const distantHue = (rainbowHue + 0.5 + time) % 1.0;
-            this.colorChange.setHSL(distantHue, 1.0, 0.9);
-            coulors.setXYZ(
-              i,
-              this.colorChange.r,
-              this.colorChange.g,
-              this.colorChange.b
-            );
-            coulors.needsUpdate = true;
+            if (!isTopLayer) {
+             
+              const distantColor = this.getEnhancedRainbowColor((time + 0.4) % 1.0);
+              coulors.setXYZ(i, distantColor.r, distantColor.g, distantColor.b);
+              coulors.needsUpdate = true;
+            }
           }
         } else {
           if (mouseDistance < this.data.area) {
@@ -301,16 +295,12 @@ class CreateParticles {
               px -= 0.03 * Math.cos(t);
               py -= 0.03 * Math.sin(t);
 
-             
-              const hoverHue = (rainbowHue + 0.3 + time * 0.5) % 1.0;
-              this.colorChange.setHSL(hoverHue, 0.9, 0.7);
-              coulors.setXYZ(
-                i,
-                this.colorChange.r,
-                this.colorChange.g,
-                this.colorChange.b
-              );
-              coulors.needsUpdate = true;
+              if (!isTopLayer) {
+            
+                const hoverColor = this.getEnhancedRainbowColor((time + 0.1) % 1.0);
+                coulors.setXYZ(i, hoverColor.r, hoverColor.g, hoverColor.b);
+                coulors.needsUpdate = true;
+              }
 
               size.array[i] = this.data.particleSize / 1.2;
               size.needsUpdate = true;
@@ -332,16 +322,12 @@ class CreateParticles {
               py > initY + 10 ||
               py < initY - 10
             ) {
-              // Different rainbow hue for displaced particles
-              const displacedHue = (rainbowHue + 0.7 + time * 1.5) % 1.0;
-              this.colorChange.setHSL(displacedHue, 1.0, 0.6);
-              coulors.setXYZ(
-                i,
-                this.colorChange.r,
-                this.colorChange.g,
-                this.colorChange.b
-              );
-              coulors.needsUpdate = true;
+              if (!isTopLayer) {
+                
+                const displacedColor = this.getEnhancedRainbowColor((time + 0.05) % 1.0);
+                coulors.setXYZ(i, displacedColor.r, displacedColor.g, displacedColor.b);
+                coulors.needsUpdate = true;
+              }
 
               size.array[i] = this.data.particleSize / 1.8;
               size.needsUpdate = true;
@@ -356,7 +342,105 @@ class CreateParticles {
         pos.setXYZ(i, px, py, pz);
         pos.needsUpdate = true;
       }
+    } else {
+      
+      const coulors = this.particles.geometry.attributes.customColor;
+      const baseColor = this.getEnhancedRainbowColor(time);
+      
+      for (var i = 0, l = coulors.count; i < l; i++) {
+        const initX = this.geometryCopy.attributes.position.getX(i);
+        const initY = this.geometryCopy.attributes.position.getY(i);
+        const isTopLayer = this.isTopLayerParticle(i, initX, initY);
+        
+        if (isTopLayer) {
+          coulors.setXYZ(i, 1.0, 1.0, 1.0);
+        } else {
+          coulors.setXYZ(i, baseColor.r, baseColor.g, baseColor.b);
+        }
+      }
+      coulors.needsUpdate = true;
     }
+  }
+
+
+  isTopLayerParticle(index, x, y) {
+   
+    
+    
+    if (index % 6 === 0) return true;
+    
+   
+    if (y > 5) return Math.random() < 0.3; 
+    
+   
+    if (Math.abs(x) < 20 && y > 0) return index % 8 === 0;
+    
+    return false;
+  }
+
+  
+  getEnhancedRainbowColor(t) {
+    t = t % 1.0;
+    
+   
+    if (t < 0.25) {
+      // maybe gonna tweak the colors look fine
+      const progress = t / 0.25;
+      return this.lerpColor(
+        { r: 1.0, g: 0.0, b: 0.0 },      // pure red
+        { r: 1.0, g: 0.3, b: 0.0 },     // red-orange
+        progress
+      );
+    } else if (t < 0.35) {
+      // Quick orange to yellow
+      const progress = (t - 0.25) / 0.1;
+      return this.lerpColor(
+        { r: 1.0, g: 0.3, b: 0.0 },     // red-orange
+        { r: 1.0, g: 0.8, b: 0.0 },     // orange-yellow
+        progress
+      );
+    } else if (t < 0.5) {
+      // Yellow to green
+      const progress = (t - 0.35) / 0.15;
+      return this.lerpColor(
+        { r: 1.0, g: 0.8, b: 0.0 },     // orange-yellow
+        { r: 0.2, g: 0.8, b: 0.2 },     // green
+        progress
+      );
+    } else if (t < 0.65) {
+      // Green to blue
+      const progress = (t - 0.5) / 0.15;
+      return this.lerpColor(
+        { r: 0.2, g: 0.8, b: 0.2 },     // green
+        { r: 0.1, g: 0.4, b: 0.9 },     // blue
+        progress
+      );
+    } else if (t < 0.8) {
+      // Blue to purple
+      const progress = (t - 0.65) / 0.15;
+      return this.lerpColor(
+        { r: 0.1, g: 0.4, b: 0.9 },     // blue
+        { r: 0.6, g: 0.2, b: 0.8 },     // purple
+        progress
+      );
+    } else {
+      // Purple back to red 
+      const progress = (t - 0.8) / 0.2;
+      return this.lerpColor(
+        { r: 0.6, g: 0.2, b: 0.8 },     // purple
+        { r: 1.0, g: 0.0, b: 0.0 },     // pure red
+        progress
+      );
+    }
+  }
+
+
+  lerpColor(color1, color2, t) {
+    return {
+      r: color1.r + (color2.r - color1.r) * t,
+      g: color1.g + (color2.g - color1.g) * t,
+      b: color1.b + (color2.b - color1.b) * t
+    };
   }
 
   createText() {
@@ -390,6 +474,7 @@ class CreateParticles {
     let colors = [];
     let sizes = [];
 
+   
     for (let x = 0; x < shapes.length; x++) {
       let shape = shapes[x];
 
@@ -403,10 +488,8 @@ class CreateParticles {
         thePoints.push(a);
         
        
-        const baseInitialHue = (x * 0.1) % 1.0; 
-        const pointHue = (baseInitialHue + (z * 0.01)) % 1.0; 
-        this.colorChange.setHSL(pointHue, 0.8, 0.6);
-        colors.push(this.colorChange.r, this.colorChange.g, this.colorChange.b);
+        const startColor = { r: 1.0, g: 0.1, b: 0.1 }; 
+        colors.push(startColor.r, startColor.g, startColor.b);
         sizes.push(1);
       });
     }
