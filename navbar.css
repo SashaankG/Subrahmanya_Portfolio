@@ -1,0 +1,36 @@
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.0);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  z-index: 9999;
+}
+
+.bottom-nav a {
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+  transition: text-shadow 0.2s ease;
+}
+
+.bottom-nav a:hover {
+  animation: rainbowCycle 2s infinite linear;
+  text-shadow: 0 0 8px currentColor, 0 0 12px currentColor;
+}
+
+@keyframes rainbowCycle {
+  0%    { color: red; }
+  14.28% { color: orange; }
+  28.56% { color: yellow; }
+  42.84% { color: green; }
+  57.12% { color: blue; }
+  71.4%  { color: indigo; }
+  85.68% { color: violet; }
+  100%   { color: red; }
+}
