@@ -109,7 +109,7 @@ class CreateParticles {
     this.buttom = false;
 
     this.data = {
-      text: "        Hey stranger!\nI'm Subrahmanya Ghanta\n        Welcome to my portfolio!",
+      text: "Hi there!\n      I'm Subrahmanya Ghanta.\n           Welcome to my portfolio!",
       amount: 1500,
       particleSize: 1,
       particleColor: 0xffffff,
