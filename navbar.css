@@ -14,14 +14,18 @@
 
 .bottom-nav a {
   color: white;
-  font-size: 28px;
+  font-size: 33px;
   text-decoration: none;
-  transition: text-shadow 0.2s ease;
+  transition: color 0.2s ease, text-shadow 0.4s ease;
 }
 
 .bottom-nav a:hover {
   animation: rainbowCycle 2s infinite linear;
-  text-shadow: 0 0 8px currentColor, 0 0 12px currentColor;
+  text-shadow:
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor,
+    0 0 40px currentColor;
 }
 
 @keyframes rainbowCycle {
