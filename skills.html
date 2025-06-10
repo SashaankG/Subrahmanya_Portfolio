@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills Carousel - Subrahmanya Ghanta</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="skills-fullpage">
+    <h1 class="skills-heading">Technical Arsenal</h1>
+    
+    <button class="auto-play-toggle" onclick="toggleAutoPlay()">
+      <i class="fas fa-play" id="playIcon"></i> Auto Play
+    </button>
+    
+    <div class="carousel">
+      <button class="carousel-nav carousel-prev" onclick="prevSlide()" aria-label="Previous slide">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      
+      <div class="carousel-wrapper">
+        <div class="carousel-content" id="carouselContent">
+          
+          <div class="skill-slide">
+            <div class="category-title">
+              <i class="fas fa-code category-icon"></i>
+              Programming Languages
+            </div>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <i class="fab fa-python skill-icon"></i>
+                <div class="skill-name">Python</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 90%" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-js skill-icon"></i>
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 85%" data-width="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-hashtag skill-icon"></i>
+                <div class="skill-name">C++</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 80%" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-java skill-icon"></i>
+                <div class="skill-name">Java</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 75%" data-width="75"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-code skill-icon"></i>
+                <div class="skill-name">TypeScript</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 70%" data-width="70"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="skill-slide">
+            <div class="category-title">
+              <i class="fas fa-tools category-icon"></i>
+              Frameworks & Tools
+            </div>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <i class="fab fa-react skill-icon"></i>
+                <div class="skill-name">React</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 85%" data-width="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-vuejs skill-icon"></i>
+                <div class="skill-name">Vue.js</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 70%" data-width="70"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-node-js skill-icon"></i>
+                <div class="skill-name">Node.js</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 80%" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-docker skill-icon"></i>
+                <div class="skill-name">Docker</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 75%" data-width="75"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-git-alt skill-icon"></i>
+                <div class="skill-name">Git</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 90%" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-aws skill-icon"></i>
+                <div class="skill-name">AWS</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 70%" data-width="70"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="skill-slide">
+            <div class="category-title">
+              <i class="fas fa-database category-icon"></i>
+              Databases & APIs
+            </div>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <i class="fas fa-database skill-icon"></i>
+                <div class="skill-name">SQL</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 85%" data-width="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-leaf skill-icon"></i>
+                <div class="skill-name">MongoDB</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 75%" data-width="75"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-plug skill-icon"></i>
+                <div class="skill-name">REST APIs</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 80%" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-project-diagram skill-icon"></i>
+                <div class="skill-name">GraphQL</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 65%" data-width="65"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="skill-slide">
+            <div class="category-title">
+              <i class="fas fa-shield-alt category-icon"></i>
+              Security & Management
+            </div>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <i class="fas fa-users skill-icon"></i>
+                <div class="skill-name">Agile/Scrum</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 90%" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-tasks skill-icon"></i>
+                <div class="skill-name">Jira</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 80%" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-bug skill-icon"></i>
+                <div class="skill-name">Binary Exploitation</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 70%" data-width="70"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-user-secret skill-icon"></i>
+                <div class="skill-name">Penetration Testing</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 65%" data-width="65"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-shield-alt skill-icon"></i>
+                <div class="skill-name">Cybersecurity</div>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 75%" data-width="75"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="progress-indicator" id="progressIndicator"></div>
+      </div>
+      
+      <button class="carousel-nav carousel-next" onclick="nextSlide()" aria-label="Next slide">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <div class="carousel-indicators" id="indicators"></div>
+  </main>
+
+  
+   <nav class="bottom-nav">
+        <a href="index.html" title="Home"><i class="fa-solid fa-house"></i></a>
+        <a href="projects.html" title="Projects"><i class="fa-solid fa-briefcase"></i></a>
+        <a href="skills.html" title="Tools/Skills"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+        <a href="about.html" title="About Me"><i class="fa-solid fa-user"></i></a>
+    </nav>
+
+  <script>
+    let currentSlide = 0;
+    let autoPlay = false;
+    let autoPlayInterval;
+    const slides = document.querySelectorAll('.skill-slide');
+    const content = document.getElementById('carouselContent');
+    const indicators = document.getElementById('indicators');
+    const progressIndicator = document.getElementById('progressIndicator');
+    const playIcon = document.getElementById('playIcon');
+
+    
+    function createIndicators() {
+      for (let i = 0; i < slides.length; i++) {
+        const indicator = document.createElement('div');
+        indicator.classList.add('indicator');
+        if (i === 0) indicator.classList.add('active');
+        indicator.addEventListener('click', () => goToSlide(i));
+        indicators.appendChild(indicator);
+      }
+    }
+
+    
+    function updateCarousel() {
+      content.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+     
+      document.querySelectorAll('.indicator').forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentSlide);
+      });
+
+     
+      setTimeout(() => {
+        const activeSlide = slides[currentSlide];
+        const skillBars = activeSlide.querySelectorAll('.skill-progress');
+        skillBars.forEach(bar => {
+          const width = bar.getAttribute('data-width');
+          bar.style.width = '0%';
+          setTimeout(() => {
+            bar.style.width = width + '%';
+          }, 100);
+        });
+      }, 250);
+
+      updateProgress();
+    }
+
+    
+    function updateProgress() {
+      const progress = ((currentSlide + 1) / slides.length) * 100;
+      progressIndicator.style.width = progress + '%';
+    }
+
+    
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+      resetAutoPlay();
+    }
+
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateCarousel();
+      resetAutoPlay();
+    }
+
+    
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateCarousel();
+      resetAutoPlay();
+    }
+
+    
+    function toggleAutoPlay() {
+      autoPlay = !autoPlay;
+      
+      if (autoPlay) {
+        playIcon.classList.remove('fa-play');
+        playIcon.classList.add('fa-pause');
+        startAutoPlay();
+      } else {
+        playIcon.classList.remove('fa-pause');
+        playIcon.classList.add('fa-play');
+        clearInterval(autoPlayInterval);
+      }
+    }
+
+    
+    function startAutoPlay() {
+      autoPlayInterval = setInterval(() => {
+        nextSlide();
+      }, 4000);
+    }
+
+    
+    function resetAutoPlay() {
+      if (autoPlay) {
+        clearInterval(autoPlayInterval);
+        startAutoPlay();
+      }
+    }
+
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        prevSlide();
+      } else if (e.key === 'ArrowRight') {
+        nextSlide();
+      } else if (e.key === ' ') {
+        e.preventDefault();
+        toggleAutoPlay();
+      }
+    });
+
+    
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+
+    content.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    });
+
+    content.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      currentX = e.touches[0].clientX;
+    });
+
+    content.addEventListener('touchend', () => {
+      if (!isDragging) return;
+      
+      const diffX = startX - currentX;
+      const threshold = 50;
+
+      if (Math.abs(diffX) > threshold) {
+        if (diffX > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+      
+      isDragging = false;
+    });
+
+    
+    createIndicators();
+    updateCarousel();
+  </script>
+</body>
+</html>
