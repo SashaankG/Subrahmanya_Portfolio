@@ -400,6 +400,12 @@ dont know wether or not I want to inculde seems redundent with the dots porgress
 }
 */
 
+.about-text strong {
+  animation: rainbowCycle 6s linear infinite;
+  text-shadow: 0 0 5px currentColor;
+}
+
+
 @media (max-width: 768px) {
   .skills-heading {
     font-size: 2.5rem;
