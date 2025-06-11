@@ -13,6 +13,37 @@
     />
 </head>
 
+<script>
+  const words = [
+    "secure", 
+    "targeted", 
+    "aesthetic", 
+    "scalable", 
+    "user-friendly", 
+    "impactful", 
+    "responsive", 
+    "accessible", 
+    "robust", 
+    "intuitive", 
+    "modular", 
+    "fast", 
+    "efficient", 
+    "clean", 
+    "personalized", 
+    "ethical", 
+    "dynamic", 
+    "innovative"
+  ];
+  
+  let index = 0;
+
+  setInterval(() => {
+    document.querySelector(".rotating-word").textContent = words[index];
+    index = (index + 1) % words.length;
+  }, 1500);
+</script>
+
+
 <body>
     <main class="about-fullpage">
         <h1 class="about-heading">Hello, I'm Subrahmanya Ghanta</h1>
@@ -42,7 +73,7 @@
             </div>
             
             <div class="about-text">
-    <p>Hi, I’m Subrahmanya Ghanta. I'm a <strong>Computer Science major</strong> with a <strong>Cybersecurity minor</strong> at The University of Texas at Dallas. I love building secure, scalable apps that solve real problems.</p>
+    <p>Hi, I’m Subrahmanya Ghanta. I'm a <strong>Computer Science major</strong> with a <strong>Cybersecurity minor</strong> at The University of Texas at Dallas. I love building <strong><span class="rotating-word">secure</span></strong> solutions that solve real problems.</p>
     
     <p>I work across the full stack and focus on authentication, secure coding, and backend design. At UTD, I’m part of <strong>UTD Trends</strong>, where we build <strong>tech tools</strong> for the student community.</p>
 
