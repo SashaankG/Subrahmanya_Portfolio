@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - Subrahmanya Ghanta</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+   html, body {
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Major Mono Display', monospace;
+  color: white;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+</style>
+<body>
+  <main class="projects-fullpage">
+    <h1 class="projects-heading">Project Portfolio</h1>
+    
+    <div class="filter-controls">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="web">Web Development</button>
+      <button class="filter-btn" data-filter="security">Security</button>
+      <button class="filter-btn" data-filter="ai">AI/ML</button>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+
+      <div class="project-card" data-category="web">
+        <div class="project-status status-completed">Completed</div>
+        <div class="project-header">
+          <i class="fas fa-graduation-cap project-icon"></i>
+          <h3 class="project-title">UTD Trends</h3>
+        </div>
+        <p class="project-description">
+          Student-focused platform that combines Rate My Professor data with grade distributions to help UTD students make informed decisions about course selection. Features advanced filtering, analytics, and professor comparisons.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Tailwind CSS</span>
+          <span class="tech-tag">Vercel</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/UTDNebula/utd-trends" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+          <a href="https://trends.utdnebula.com/" class="project-link" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live
+          </a>
+        </div>
+      </div>
+      
+      <div class="project-card" data-category="web">
+        <div class="project-status status-completed">Completed</div>
+        <div class="project-header">
+          <i class="fas fa-user-circle project-icon"></i>
+          <h3 class="project-title">Personal Portfolio</h3>
+        </div>
+        <p class="project-description">
+           Interactive personal portfolio website featuring dynamic animations, rainbow color cycles, and responsive design. Built with Three.js for immersive 3D experiences and modern web technologies for optimal performance.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">Three.js</span>
+          <span class="tech-tag">HTML5</span>
+          <span class="tech-tag">CSS3</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">GitHub Pages</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/SashaankG/Subrahmanya_Portfolio" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+          <a href="https://sashaankg.github.io/Subrahmanya_Portfolio/index.html" class="project-link" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live
+          </a>
+        </div>
+      </div>
+
+      
+      <div class="project-card" data-category="security">
+        <div class="project-status status-in-progress">On-going</div>
+        <div class="project-header">
+          <i class="fas fa-bug-slash project-icon"></i>
+          <h3 class="project-title">Reconstructed-Malwares</h3>
+        </div>
+        <p class="project-description">
+          Curated repository of real-world Python-based malware collected from Discord servers, underground forums, and cracked software channels. Features decompiled samples with full static analysis for cybersecurity research.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Static Analysis</span>
+          <span class="tech-tag">Reverse Engineering</span>
+          <span class="tech-tag">Threat Intelligence</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/SashaankG/Reconstructed-Malwares" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Reports/Malwares
+          </a>
+        </div>
+      </div>
+
+      
+      <div class="project-card" data-category="ai">
+        <div class="project-status status-completed">Hackathon Finalist</div>
+        <div class="project-header">
+          <i class="fas fa-file-audio project-icon"></i>
+          <h3 class="project-title">Docu Voice</h3>
+        </div>
+        <p class="project-description">
+          Multilingual legal document narrator for visually impaired and ESL users. Selected as finalist among 50+ teams in NVIDIA AWS Gen AI Breaking Barriers Hackathon. Features live voice QA, document summarization, and accessibility-first design.
+        </p>
+        <div class="project-tech">
+           <span class="tech-tag">AWS Lambda</span>
+          <span class="tech-tag">Amazon Sagemaker</span>
+          <span class="tech-tag">Amazon Lex</span>
+          <span class="tech-tag">Amazon Comprehend</span>
+          <span class="tech-tag">S3 Buckets</span>
+          <span class="tech-tag">Python</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/S-S-R-A/AWS-Hackathon" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+        </div>
+      </div>
+
+      
+      <div class="project-card" data-category="ai">
+        <div class="project-status status-completed">Completed</div>
+        <div class="project-header">
+          <i class="fas fa-comments-dollar project-icon"></i>
+          <h3 class="project-title">AI Banking Chatbot</h3>
+        </div>
+        <p class="project-description">
+          Intelligent conversational AI for banking and finance applications. Features natural language processing, transaction analysis, financial advice generation, and secure authentication with context-aware responses. Dashboard to display financial metrics as well.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">SambaNova API</span>
+          <span class="tech-tag">NLP</span>
+        </div>
+        <div class="project-links">
+         <div class="project-links">
+          <a href="https://github.com/HackUTD-2024/Project" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="index.html" title="Home"><i class="fa-solid fa-house"></i></a>
+    <a href="projects.html" title="Projects"><i class="fa-solid fa-briefcase"></i></a>
+    <a href="skills.html" title="Tools/Skills"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+    <a href="about.html" title="About Me"><i class="fa-solid fa-user"></i></a>
+  </nav>
+
+  <script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+
+        filterBtns.forEach(b => b.classList.remove('active'));
+
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+
+    projectCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const icon = card.querySelector('.project-icon');
+        icon.style.transform = 'scale(1.1) rotate(5deg)';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        const icon = card.querySelector('.project-icon');
+        icon.style.transform = 'scale(1) rotate(0deg)';
+      });
+    });
+
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key >= '1' && e.key <= '4') {
+        const index = parseInt(e.key) - 1;
+        if (filterBtns[index]) {
+          filterBtns[index].click();
+        }
+      }
+    });
+
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    projectCards.forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
