@@ -1,4 +1,8 @@
 
+:root {
+  font-size: clamp(14px, 1.5vw, 18px);
+}
+
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -8,7 +12,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 0;
+  padding: clamp(0.5rem, 1.5vh, 1rem) 0;
   z-index: 10000;
 }
 
@@ -18,7 +22,7 @@ body#home-page .bottom-nav {
 
 .bottom-nav a {
   color: white;
-  font-size: 33px;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
   text-decoration: none;
   transition: color 0.2s ease, text-shadow 0.4s ease;
 }
@@ -26,10 +30,10 @@ body#home-page .bottom-nav {
 .bottom-nav a:hover {
   animation: rainbowCycle 6s infinite linear;
   text-shadow:
-    0 0 10px currentColor,
-    0 0 20px currentColor,
-    0 0 30px currentColor,
-    0 0 40px currentColor;
+    0 0 0.625rem currentColor,
+    0 0 1.25rem currentColor,
+    0 0 1.875rem currentColor,
+    0 0 2.5rem currentColor;
 }
 
 @keyframes rainbowCycle {
@@ -50,129 +54,72 @@ html, body {
   overflow: hidden;
   font-family: 'Major Mono Display', monospace;
   color: white;
+  scroll-behavior: smooth;
 }
 
 .about-heading {
   font-family: 'Major Mono Display', monospace;
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 4rem);
   font-weight: bold;
   color: transparent;
-  -webkit-text-stroke: 1.5px white;
+  -webkit-text-stroke: clamp(1px, 0.3vw, 2px) white;
   text-align: center;
-  margin: 2rem auto;
+  margin: clamp(1rem, 4vh, 3rem) auto;
   animation: rainbowStroke 6s linear infinite;
-  text-shadow: currentColor
+  text-shadow: currentColor;
 }
-
-/*
-@keyframes rainbowStroke {
-  0% {
-    color: red;
-    -webkit-text-stroke-color: white;
-    text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
-  }
-  14.28% {
-    color: orange;
-    -webkit-text-stroke-color: white;
-    text-shadow: 0 0 10px orange, 0 0 20px orange, 0 0 30px orange;
-  }
-  28.56% {
-    color: yellow;
-    -webkit-text-stroke-color: white;
-    text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow;
-  }
-  42.84% {
-    color: green;
-    -webkit-text-stroke-color: white;
-    text-shadow: 0 0 10px green, 0 0 20px green, 0 0 30px green;
-  }
-  57.12% {
-    color: rgb(0, 106, 255);
-    -webkit-text-stroke-color: white;
-    text-shadow: 0 0 10px rgb(0, 106, 255), 0 0 20px rgb(0, 106, 255), 0 0 30px rgb(0, 106, 255);
-  }
-  71.4% {
-    color: rgb(164, 69, 232);
-    -webkit-text-stroke-color: white;
-    text-shadow: 0 0 10px rgb(164, 69, 232), 0 0 20px rgb(164, 69, 232), 0 0 30px rgb(164, 69, 232);
-  }
-  85.68% {
-    color: violet;
-    -webkit-text-stroke-color: white;
-    text-shadow: 0 0 10px violet, 0 0 20px violet, 0 0 30px violet;
-  }
-  100% {
-    color: red;
-    -webkit-text-stroke-color: white;
-    text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
-  }
-}
-*/
 
 .about-fullpage {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  padding: 3rem 2rem 6rem;
+  padding: clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 3rem) clamp(4rem, 8vh, 8rem);
   text-align: center;
 }
 
 .about-flex {
   display: flex;
   flex-direction: row;
-  gap: 3rem;
+  gap: clamp(1.5rem, 4vw, 4rem);
   align-items: flex-start;
   justify-content: center;
-  max-width: 1200px;
+  max-width: min(90vw, 1200px);
   flex-wrap: wrap;
 }
 
 .profile-pic {
-    width: clamp(280px, 25vw, 400px);
-    height: clamp(280px, 25vw, 400px);
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid currentColor;
-    box-shadow: 0 0 15px currentColor;
-    transition: all 0.3s ease-in-out;
-    margin-bottom: 3vh;
-    
-    /*need to decide wether or not hover cycle vs perm cycle*/
-
-    animation: rainbowCycle 6s linear infinite;
-    box-shadow:
-    0 0 15px currentColor,
-    0 0 30px currentColor,
-    0 0 45px currentColor,
-    0 0 60px currentColor;
-}
-
-/*
-.profile-pic:hover {
+  width: clamp(200px, 25vw, 400px);
+  height: clamp(200px, 25vw, 400px);
+  object-fit: cover;
+  border-radius: 50%;
+  border: clamp(2px, 0.5vw, 4px) solid currentColor;
+  box-shadow: 0 0 clamp(0.5rem, 1.5vw, 1rem) currentColor;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: clamp(1.5rem, 3vh, 3rem);
+  
   animation: rainbowCycle 6s linear infinite;
   box-shadow:
-    0 0 15px currentColor,
-    0 0 30px currentColor,
-    0 0 45px currentColor,
-    0 0 60px currentColor;
-}*/
-
+    0 0 clamp(0.5rem, 1.5vw, 1rem) currentColor,
+    0 0 clamp(1rem, 3vw, 2rem) currentColor,
+    0 0 clamp(1.5rem, 4.5vw, 3rem) currentColor,
+    0 0 clamp(2rem, 6vw, 4rem) currentColor;
+}
 
 .about-text {
-  max-width: 650px;
+  max-width: min(90vw, 650px);
   text-align: left;
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
   color: #ddd;
   line-height: 1.6;
 }
 
 .social-icons {
   display: flex;
-  gap: 2rem;
+  gap: clamp(1rem, 3vw, 2.5rem);
   justify-content: center;
-  font-size: 33px;
-  margin-top: 1.5rem;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  margin-top: clamp(1rem, 2vh, 2rem);
 }
 
 .social-icons a {
@@ -184,29 +131,29 @@ html, body {
 .social-icons a:hover {
   animation: rainbowCycle 6s infinite linear;
   text-shadow:
-    0 0 10px currentColor,
-    0 0 20px currentColor,
-    0 0 30px currentColor,
-    0 0 40px currentColor;
+    0 0 0.625rem currentColor,
+    0 0 1.25rem currentColor,
+    0 0 1.875rem currentColor,
+    0 0 2.5rem currentColor;
 }
 
-  .skills-fullpage {
+.skills-fullpage {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  padding: 3rem 2rem 6rem;
+  padding: clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 3rem) clamp(4rem, 8vh, 8rem);
   text-align: center;
   background: transparent;
 }
 
 .skills-heading {
   font-family: 'Major Mono Display', monospace;
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 4rem);
   font-weight: bold;
   color: transparent;
-  -webkit-text-stroke: 1.5px white;
-  margin: 2rem auto 4rem;
+  -webkit-text-stroke: clamp(1px, 0.3vw, 2px) white;
+  margin: clamp(1rem, 4vh, 3rem) auto clamp(2rem, 6vh, 5rem);
 }
 
 .carousel {
@@ -214,16 +161,16 @@ html, body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: min(90vw, 1200px);
   position: relative;
   background: transparent;
 }
 
 .carousel-wrapper {
   width: 90%;
-  max-width: 800px;
+  max-width: min(85vw, 800px);
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: clamp(0.5rem, 1.5vw, 1rem);
   background: transparent;
   border: none;
   position: relative;
@@ -243,39 +190,39 @@ html, body {
 
 .skill-slide {
   min-width: 100%;
-  padding: 2rem;
+  padding: clamp(1rem, 3vw, 2.5rem);
   box-sizing: border-box;
 }
 
 .category-title {
   font-family: 'Major Mono Display', monospace;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.8rem);
   font-weight: bold;
   color: white;
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(1rem, 2vh, 2rem);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: clamp(0.3rem, 1vw, 0.8rem);
 }
 
 .category-icon {
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 3.5vw, 2rem);
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  grid-auto-rows: 160px;
-  gap: 1rem;
-  max-width: 700px;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(100px, 15vw, 160px), 1fr));
+  grid-auto-rows: clamp(120px, 20vh, 180px);
+  gap: clamp(0.5rem, 1.5vw, 1.2rem);
+  max-width: min(90vw, 700px);
   margin: 0 auto;
 }
 
 .skill-item {
   background: transparent;
   border: none;
-  padding: 1rem 0.5rem;
+  padding: clamp(0.5rem, 1.5vw, 1rem) clamp(0.3rem, 1vw, 0.8rem);
   text-align: center;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -285,35 +232,35 @@ html, body {
 .skill-item:hover .skill-icon,
 .skill-item:hover .skill-name {
   animation: rainbowCycle 6s linear infinite;
-  text-shadow: 0 0 10px currentColor;
+  text-shadow: 0 0 0.625rem currentColor;
 }
 
 .skill-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: clamp(1.2rem, 3vw, 2.2rem);
+  margin-bottom: clamp(0.3rem, 1vh, 0.8rem);
   display: block;
 }
 
 .skill-name {
   font-family: 'Major Mono Display', monospace;
-  font-size: 0.85rem;
+  font-size: clamp(0.6rem, 1.5vw, 1rem);
   color: #ddd;
   font-weight: 500;
-  margin-bottom: 0.5rem;
+  margin-bottom: clamp(0.3rem, 1vh, 0.8rem);
 }
 
 .skill-level {
-  margin-top: 0.5rem;
-  height: 4px;
+  margin-top: clamp(0.3rem, 1vh, 0.8rem);
+  height: clamp(2px, 0.5vh, 4px);
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 2px;
+  border-radius: clamp(1px, 0.3vh, 2px);
   overflow: hidden;
 }
 
 .skill-progress {
   height: 100%;
   background: linear-gradient(90deg, red, orange, yellow, green, rgb(0, 106, 255));
-  border-radius: 2px;
+  border-radius: clamp(1px, 0.3vh, 2px);
   transition: width 0.8s ease;
   animation: progressGlow 3s ease-in-out infinite alternate;
 }
@@ -322,7 +269,7 @@ html, body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 33px;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   background: transparent;
   border: none;
   color: white;
@@ -333,27 +280,27 @@ html, body {
 
 .carousel-nav:hover {
   animation: rainbowCycle 6s infinite linear;
-  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  text-shadow: 0 0 0.625rem currentColor, 0 0 1.25rem currentColor;
 }
 
 .carousel-prev {
-  left: -50px;
+  left: clamp(-2rem, -5vw, -3rem);
 }
 
 .carousel-next {
-  right: -50px;
+  right: clamp(-2rem, -5vw, -3rem);
 }
 
 .carousel-indicators {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+  margin-top: clamp(1rem, 3vh, 2rem);
 }
 
 .indicator {
-  width: 12px;
-  height: 12px;
+  width: clamp(8px, 1.5vw, 12px);
+  height: clamp(8px, 1.5vw, 12px);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.3);
   cursor: pointer;
@@ -363,356 +310,321 @@ html, body {
 
 .indicator.active {
   background: white;
-  box-shadow: 0 0 10px white;
+  box-shadow: 0 0 0.625rem white;
 }
 
 .indicator:hover {
   animation: rainbowCycle 6s linear infinite;
-  box-shadow: 0 0 15px currentColor;
+  box-shadow: 0 0 clamp(0.5rem, 1.5vw, 1rem) currentColor;
 }
 
 .auto-play-toggle {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: clamp(0.5rem, 2vh, 1.5rem);
+  right: clamp(0.5rem, 2vw, 1.5rem);
   background: transparent;
   border: none;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: clamp(0.3rem, 1vh, 0.6rem) clamp(0.5rem, 1.5vw, 1rem);
   cursor: pointer;
   font-family: 'Major Mono Display', monospace;
-  font-size: 0.8rem;
+  font-size: clamp(0.6rem, 1.2vw, 0.9rem);
   transition: all 0.3s ease;
 }
 
 .auto-play-toggle:hover {
   animation: rainbowCycle 6s linear infinite;
-  text-shadow: 0 0 10px currentColor;
+  text-shadow: 0 0 0.625rem currentColor;
 }
-
-/*
-
-dont know wether or not I want to inculde seems redundent with the dots porgress indacator 
-.progress-indicator {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 5px;
-  background: linear-gradient(90deg, red, orange, yellow, green, rgb(0, 106, 255), rgb(164, 69, 232), violet);
-  transition: width 0.1s linear;
-  border-radius: 0 3px 0 0;
-}
-*/
 
 .about-text strong {
   animation: rainbowCycle 6s linear infinite;
-  text-shadow: 0 0 5px currentColor;
+  text-shadow: 0 0 0.3125rem currentColor;
 }
 
+.projects-fullpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 3rem) clamp(5rem, 10vh, 10rem);
+  text-align: center;
+}
+
+.projects-heading {
+  font-family: 'Major Mono Display', monospace;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: clamp(1px, 0.3vw, 2px) white;
+  text-align: center;
+  margin: clamp(1rem, 4vh, 3rem) auto clamp(2rem, 6vh, 5rem);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(300px, 40vw, 400px), 1fr));
+  gap: clamp(1rem, 3vw, 2.5rem);
+  max-width: min(95vw, 1200px);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: transparent;
+  border: clamp(1px, 0.3vw, 2px) solid rgba(255, 255, 255, 0.2);
+  border-radius: clamp(0.5rem, 1.5vw, 1rem);
+  padding: clamp(1rem, 3vw, 2.5rem);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  border-color: white;
+  box-shadow: 
+    0 0 clamp(0.75rem, 2vw, 1.25rem) rgba(255, 255, 255, 0.3),
+    inset 0 0 clamp(0.75rem, 2vw, 1.25rem) rgba(255, 255, 255, 0.1);
+  transform: translateY(clamp(-2px, -0.5vh, -5px));
+}
+
+.project-card:hover .project-title {
+  animation: rainbowCycle 6s linear infinite;
+  text-shadow: 0 0 0.625rem currentColor;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+  margin-bottom: clamp(1rem, 2vh, 2rem);
+}
+
+.project-icon {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-icon {
+  animation: rainbowCycle 6s linear infinite;
+  text-shadow: 0 0 clamp(0.5rem, 1.5vw, 1rem) currentColor;
+}
+
+.project-title {
+  font-family: 'Major Mono Display', monospace;
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  text-align: left;
+}
+
+.project-description {
+  color: #ddd;
+  font-size: clamp(0.8rem, 1.8vw, 1.1rem);
+  line-height: 1.6;
+  margin-bottom: clamp(1rem, 2vh, 2rem);
+  text-align: left;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.3rem, 0.8vw, 0.6rem);
+  margin-bottom: clamp(1rem, 2vh, 2rem);
+}
+
+.tech-tag {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: clamp(0.2rem, 0.5vh, 0.4rem) clamp(0.5rem, 1vw, 0.9rem);
+  border-radius: clamp(0.8rem, 2vw, 1.2rem);
+  font-size: clamp(0.6rem, 1.2vw, 0.9rem);
+  color: #ddd;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .tech-tag {
+  border-color: white;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.project-links {
+  display: flex;
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  color: white;
+  text-decoration: none;
+  font-size: clamp(0.8rem, 1.8vw, 1.2rem);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.3rem, 0.8vw, 0.6rem);
+  padding: clamp(0.3rem, 1vh, 0.6rem) clamp(0.5rem, 1.5vw, 1rem);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: clamp(0.3rem, 0.8vw, 0.6rem);
+}
+
+.project-link:hover {
+  animation: rainbowCycle 6s linear infinite;
+  text-shadow: 0 0 0.625rem currentColor;
+  border-color: currentColor;
+  box-shadow: 0 0 clamp(0.5rem, 1.5vw, 1rem) currentColor;
+}
+
+.project-status {
+  position: absolute;
+  top: clamp(0.5rem, 1.5vh, 1rem);
+  right: clamp(0.5rem, 1.5vw, 1rem);
+  padding: clamp(0.2rem, 0.5vh, 0.4rem) clamp(0.5rem, 1vw, 0.9rem);
+  border-radius: clamp(0.8rem, 2vw, 1.2rem);
+  font-size: clamp(0.5rem, 1vw, 0.8rem);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-completed {
+  background: rgba(0, 255, 0, 0.2);
+  border: 1px solid rgba(0, 255, 0, 0.5);
+  color: #00ff00;
+}
+
+.status-in-progress {
+  background: rgba(255, 165, 0, 0.2);
+  border: 1px solid rgba(255, 165, 0, 0.5);
+  color: #ffa500;
+}
+
+.status-concept {
+  background: rgba(255, 0, 255, 0.2);
+  border: 1px solid rgba(255, 0, 255, 0.5);
+  color: #ff00ff;
+}
+
+.filter-controls {
+  display: flex;
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+  margin-bottom: clamp(2rem, 4vh, 4rem);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-btn {
+  background: transparent;
+  border: clamp(1px, 0.3vw, 2px) solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: clamp(0.4rem, 1vh, 0.8rem) clamp(0.8rem, 2vw, 1.5rem);
+  border-radius: clamp(1rem, 3vw, 1.5rem);
+  cursor: pointer;
+  font-family: 'Major Mono Display', monospace;
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  border-color: white;
+  animation: rainbowCycle 6s linear infinite;
+  text-shadow: 0 0 0.625rem currentColor;
+  box-shadow: 0 0 clamp(0.5rem, 1.5vw, 1rem) currentColor;
+}
+
+.project-card.hidden {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(clamp(280px, 35vw, 350px), 1fr));
+  }
+  
+  .about-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-text {
+    text-align: center;
+  }
+}
 
 @media (max-width: 768px) {
-  .skills-heading {
-    font-size: 2.5rem;
-  }
-
-  .carousel-nav {
-    font-size: 28px;
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(clamp(90px, 18vw, 140px), 1fr));
+    grid-auto-rows: clamp(100px, 18vh, 150px);
   }
 
   .carousel-prev {
-    left: -30px;
+    left: clamp(-1.5rem, -4vw, -2rem);
   }
 
   .carousel-next {
-    right: -30px;
+    right: clamp(-1.5rem, -4vw, -2rem);
   }
 
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    grid-auto-rows: 140px;
-    gap: 0.8rem;
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 
-  .skill-slide {
-    padding: 1.5rem 1rem;
-  }
-
-  .auto-play-toggle {
-    top: 10px;
-    right: 10px;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.7rem;
+  .project-links {
+    justify-content: center;
   }
 }
 
 @media (max-width: 480px) {
   .carousel-prev {
-    left: 10px;
+    left: clamp(0.5rem, 2vw, 1rem);
   }
 
   .carousel-next {
-    right: 10px;
+    right: clamp(0.5rem, 2vw, 1rem);
   }
 
   .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    grid-auto-rows: 130px;
+    grid-template-columns: repeat(auto-fill, minmax(clamp(80px, 20vw, 120px), 1fr));
+    grid-auto-rows: clamp(90px, 16vh, 130px);
+  }
+
+  .project-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .project-title {
+    text-align: center;
+  }
+
+  .project-description {
+    text-align: center;
+  }
+
+  .project-tech {
+    justify-content: center;
   }
 }
 
- .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #000;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 10px 0;
-      z-index: 10000;
-    }
+@media (min-width: 1920px) {
+  :root {
+    font-size: clamp(16px, 1.2vw, 20px);
+  }
+}
 
-    html, body {
-      background-color: #000;
-      margin: 0;
-      padding: 0;
-      font-family: 'Major Mono Display', monospace;
-      color: white;
-      scroll-behavior: smooth;
-    }
-
-    .projects-fullpage {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 3rem 2rem 8rem;
-      text-align: center;
-    }
-
-    .projects-heading {
-      font-family: 'Major Mono Display', monospace;
-      font-size: 3rem;
-      font-weight: bold;
-      color: transparent;
-      -webkit-text-stroke: 1.5px white;
-      text-align: center;
-      margin: 2rem auto 4rem;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    .project-card {
-      background: transparent;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
-      padding: 2rem;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card:hover {
-      border-color: white;
-      box-shadow: 
-        0 0 20px rgba(255, 255, 255, 0.3),
-        inset 0 0 20px rgba(255, 255, 255, 0.1);
-      transform: translateY(-5px);
-    }
-
-    .project-card:hover .project-title {
-      animation: rainbowCycle 6s linear infinite;
-      text-shadow: 0 0 10px currentColor;
-    }
-
-    .project-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .project-icon {
-      font-size: 2.5rem;
-      color: white;
-      transition: all 0.3s ease;
-    }
-
-    .project-card:hover .project-icon {
-      animation: rainbowCycle 6s linear infinite;
-      text-shadow: 0 0 15px currentColor;
-    }
-
-    .project-title {
-      font-family: 'Major Mono Display', monospace;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: white;
-      margin: 0;
-      text-align: left;
-    }
-
-    .project-description {
-      color: #ddd;
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      text-align: left;
-    }
-
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .tech-tag {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      color: #ddd;
-      transition: all 0.3s ease;
-    }
-
-    .project-card:hover .tech-tag {
-      border-color: white;
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .project-links {
-      display: flex;
-      gap: 1rem;
-      justify-content: flex-start;
-    }
-
-    .project-link {
-      color: white;
-      text-decoration: none;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 8px;
-    }
-
-    .project-link:hover {
-      animation: rainbowCycle 6s linear infinite;
-      text-shadow: 0 0 10px currentColor;
-      border-color: currentColor;
-      box-shadow: 0 0 15px currentColor;
-    }
-
-    .project-status {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.7rem;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    .status-completed {
-      background: rgba(0, 255, 0, 0.2);
-      border: 1px solid rgba(0, 255, 0, 0.5);
-      color: #00ff00;
-    }
-
-    .status-in-progress {
-      background: rgba(255, 165, 0, 0.2);
-      border: 1px solid rgba(255, 165, 0, 0.5);
-      color: #ffa500;
-    }
-
-    .status-concept {
-      background: rgba(255, 0, 255, 0.2);
-      border: 1px solid rgba(255, 0, 255, 0.5);
-      color: #ff00ff;
-    }
-
-    .filter-controls {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .filter-btn {
-      background: transparent;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      color: white;
-      padding: 0.7rem 1.5rem;
-      border-radius: 25px;
-      cursor: pointer;
-      font-family: 'Major Mono Display', monospace;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      border-color: white;
-      animation: rainbowCycle 6s linear infinite;
-      text-shadow: 0 0 10px currentColor;
-      box-shadow: 0 0 15px currentColor;
-    }
-
-    .project-card.hidden {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      .projects-heading {
-        font-size: 2.5rem;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .project-card {
-        padding: 1.5rem;
-      }
-
-      .filter-controls {
-        gap: 0.5rem;
-      }
-
-      .filter-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .projects-fullpage {
-        padding: 2rem 1rem 8rem;
-      }
-
-      .project-header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .project-links {
-        justify-content: center;
-      }
-    }
+@media (max-width: 360px) {
+  .about-fullpage,
+  .skills-fullpage,
+  .projects-fullpage {
+    padding: clamp(1rem, 3vh, 2rem) clamp(0.5rem, 2vw, 1rem) clamp(3rem, 6vh, 5rem);
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    grid-auto-rows: clamp(80px, 15vh, 120px);
+    gap: clamp(0.3rem, 1vw, 0.8rem);
+  }
+}
