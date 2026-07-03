@@ -82,33 +82,6 @@
         </div>
       </div>
       
-      <div class="project-card" data-category="web">
-        <div class="project-status status-completed">Completed</div>
-        <div class="project-header">
-          <i class="fas fa-user-circle project-icon"></i>
-          <h3 class="project-title">Personal Portfolio</h3>
-        </div>
-        <p class="project-description">
-           Interactive personal portfolio website featuring dynamic animations, rainbow color cycles, and responsive design. Built with Three.js for immersive 3D experiences and modern web technologies for optimal performance.
-        </p>
-        <div class="project-tech">
-          <span class="tech-tag">Three.js</span>
-          <span class="tech-tag">HTML5</span>
-          <span class="tech-tag">CSS3</span>
-          <span class="tech-tag">JavaScript</span>
-          <span class="tech-tag">GitHub Pages</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/SashaankG/Subrahmanya_Portfolio" class="project-link" target="_blank">
-            <i class="fab fa-github"></i> Code
-          </a>
-          <a href="https://sashaankg.github.io/Subrahmanya_Portfolio/index.html" class="project-link" target="_blank">
-            <i class="fas fa-external-link-alt"></i> Live
-          </a>
-        </div>
-      </div>
-
-      
       <div class="project-card" data-category="ai">
         <div class="project-status status-completed">Hackathon Finalist</div>
         <div class="project-header">
@@ -149,12 +122,92 @@
           <span class="tech-tag">NLP</span>
         </div>
         <div class="project-links">
-         <div class="project-links">
           <a href="https://github.com/HackUTD-2024/Project" class="project-link" target="_blank">
             <i class="fab fa-github"></i> Code
           </a>
         </div>
       </div>
+
+      <div class="project-card" data-category="security">
+        <div class="project-status status-completed">Completed</div>
+        <div class="project-header">
+          <i class="fas fa-shield-halved project-icon"></i>
+          <h3 class="project-title">VaultGuardian</h3>
+        </div>
+        <p class="project-description">
+          Secure Flask-based password manager that encrypts stored credentials and supports multi-factor authentication via TOTP and email OTP. Includes a clean dashboard for adding, editing, and managing sensitive data.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">WTForms</span>
+          <span class="tech-tag">Bootstrap</span>
+          <span class="tech-tag">SQLite</span>
+          <span class="tech-tag">Cryptography</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/furkmez20/VaultGuardian" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="web ai">
+        <div class="project-status status-completed">Completed</div>
+        <div class="project-header">
+          <i class="fas fa-newspaper project-icon"></i>
+          <h3 class="project-title">Newsify</h3>
+        </div>
+        <p class="project-description">
+          Full-stack investigative news archive. FastAPI backend ingests YouTube video data from S3, runs AI-driven claim and sentiment analysis with Gemini, and clusters videos into narrative trends; React/TypeScript frontend renders weekly trend reports with grouped narratives and engagement-based classifications.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Vite</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Gemini API</span>
+          <span class="tech-tag">DynamoDB</span>
+          <span class="tech-tag">Qdrant</span>
+          <span class="tech-tag">Docker</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Team-12-CS-4485/placeholders-backend" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Backend
+          </a>
+          <a href="https://github.com/Team-12-CS-4485/placeholders-frontend" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Frontend
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="web">
+        <div class="project-status status-completed">Completed</div>
+        <div class="project-header">
+          <i class="fas fa-user-circle project-icon"></i>
+          <h3 class="project-title">Personal Portfolio</h3>
+        </div>
+        <p class="project-description">
+           Interactive personal portfolio website featuring dynamic animations, rainbow color cycles, and responsive design. Built with Three.js for immersive 3D experiences and modern web technologies for optimal performance.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">Three.js</span>
+          <span class="tech-tag">HTML5</span>
+          <span class="tech-tag">CSS3</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">GitHub Pages</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/SashaankG/Subrahmanya_Portfolio" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+          <a href="https://sashaankg.github.io/Subrahmanya_Portfolio/index.html" class="project-link" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live
+          </a>
+        </div>
+      </div>
+
     </div>
   </main>
 
@@ -179,7 +232,8 @@
         const filter = btn.getAttribute('data-filter');
 
         projectCards.forEach(card => {
-          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+          const categories = card.getAttribute('data-category').split(' ');
+          if (filter === 'all' || categories.includes(filter)) {
             card.classList.remove('hidden');
           } else {
             card.classList.add('hidden');
